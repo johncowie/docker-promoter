@@ -1,0 +1,13 @@
+server {
+  listen 80;
+  
+  location / {
+    proxy_pass http://thoughtworksinc.github.io/dcent-intro;
+    proxy_set_header Host $host; 
+  }
+}
+
+server {
+  listen 443 ssl;
+  return 301 http://thoughtworksinc.github.io/dcent-intro$request_uri
+}
